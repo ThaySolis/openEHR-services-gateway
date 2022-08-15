@@ -1,0 +1,38 @@
+name: $SCONE_CONFIG_ID
+version: "0.3"
+
+services:
+  - name: api_service
+    image_name: python_image
+    command: /venv/bin/python3 /app/app.py
+    mrenclaves: [$MRENCLAVE]
+    fspf_path: /fspf/fspf.pb
+    fspf_key: $FSPF_KEY
+    fspf_tag: $FSPF_TAG
+    environment:
+      PLAIN_HTTP: $PLAIN_HTTP
+      SERVER_PORT: $SERVER_PORT
+      INCLUDE_USAGE_STATISTICS: $INCLUDE_USAGE_STATISTICS
+      USAGE_STATISTICS_MAX_SAMPLES: $USAGE_STATISTICS_MAX_SAMPLES
+      OPENEHR_API_BASE_URI: $OPENEHR_API_BASE_URI
+      VALIDATE_OPENEHR_API_CERTIFICATE: $VALIDATE_OPENEHR_API_CERTIFICATE
+      USE_CUSTOM_OPENEHR_API_CA_CERTIFICATE: $USE_CUSTOM_OPENEHR_API_CA_CERTIFICATE
+      DEMOGRAPHIC_API_BASE_URI: $DEMOGRAPHIC_API_BASE_URI
+      VALIDATE_DEMOGRAPHIC_API_CERTIFICATE: $VALIDATE_DEMOGRAPHIC_API_CERTIFICATE
+      USE_CUSTOM_DEMOGRAPHIC_API_CA_CERTIFICATE: $USE_CUSTOM_DEMOGRAPHIC_API_CA_CERTIFICATE
+      PROV_API_BASE_URI: $PROV_API_BASE_URI
+      VALIDATE_PROV_API_CERTIFICATE: $VALIDATE_PROV_API_CERTIFICATE
+      USE_CUSTOM_PROV_API_CA_CERTIFICATE: $USE_CUSTOM_PROV_API_CA_CERTIFICATE
+
+security:
+  attestation:
+    tolerate:
+      [
+        debug-mode,
+        hyperthreading,
+        outdated-tcb,
+        insecure-igpu,
+        software-hardening-needed,
+        insecure-configuration,
+      ]
+    ignore_advisories: "*"
