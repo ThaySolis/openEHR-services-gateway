@@ -1,7 +1,7 @@
 {
 	"info": {
 		"_postman_id": "2cbf198b-b94e-45da-88f2-e5eb62e8ec32",
-		"name": "OpenEHR proxy Service",
+		"name": "OpenEHR Services Gateway",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [

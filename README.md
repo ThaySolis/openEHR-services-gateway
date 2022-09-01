@@ -1,4 +1,4 @@
-# OpenEHR proxy service
+# OpenEHR services gateway
 
 > This project is part of Thayse Marques Solis' masters project, yet to be released.
 
